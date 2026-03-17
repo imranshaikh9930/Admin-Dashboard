@@ -10,7 +10,6 @@ import {
   Legend,
 } from 'chart.js';
 
-// Register the modules
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -21,34 +20,56 @@ ChartJS.register(
 );
 
 const BarChart = () => {
+  // Mapping the metrics from your stats array
   const data = {
-    labels: ['January', 'February', 'March', 'April', 'May'],
+    labels: ['Registered Users', 'Booth Bookings', 'Active Events'],
     datasets: [
       {
-        label: 'Monthly Sales',
-        data: [65, 59, 80, 81, 56],
-        backgroundColor: 'rgba(75, 192, 192, 0.5)',
-        borderColor: 'rgba(75, 192, 192, 1)',
+        label: 'Current Performance',
+        // Using dummy values based on your stats (12450, 342, 6)
+        // Note: Revenue is usually kept on a separate scale or chart due to size
+        data: [12450, 342, 6], 
+        backgroundColor: [
+          '#03A9F4', // Blue for Users
+          '#8BC34A', // Green for Bookings
+          '#ff5722', // Orange for Events
+        ],
         borderWidth: 1,
+        borderRadius: 5,
       },
     ],
   };
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'top',
+        display: false, // Hidden because labels are on the X-axis
       },
       title: {
         display: true,
-        text: 'Revenue Forecast',
+        text: 'Platform Engagement Overview',
+        font: { size: 16 }
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: {
+          display: false,
+        },
+      },
+      x: {
+        grid: {
+          display: false,
+        },
       },
     },
   };
 
   return (
-    <div style={{ width: '550px', margin: '0 auto' }}>
+    <div className=" max-w-[550px] h-[280px] mb-2 mx-auto p-4 bg-white rounded-lg shadow-sm">
       <Bar data={data} options={options} />
     </div>
   );

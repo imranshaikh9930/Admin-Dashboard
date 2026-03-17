@@ -148,7 +148,7 @@ const Overview = () => {
                 {selectedChart} Visualization
               </h3>
 
-              <div className="w-full h-[260px]">
+              <div className="w-full h-[280px]">
                 {chartComponents[selectedChart]}
               </div>
 
@@ -169,7 +169,7 @@ const Overview = () => {
                 {selectedChart} Visualization
               </h3>
 
-              <div className="w-full h-[260px]">
+              <div className="w-full h-[280px]">
                 {chartComponents[selectedChart]}
               </div>
 
